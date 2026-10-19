@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ckb">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1f2933">
+<title>HAWRE AUTO</title>
+<meta name="description" content="HAWRE-AUTO">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HAWRE AUTO">
+<meta property="og:description" content="هاوردەکردنی سەیارە لە ئەمریکا، کەنەدا و ئیماراتەوە بۆ کوردستان.">
+<link rel="icon" id="favicon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&family=Noto+Kufi+Arabic:wght@500;700;800&family=Outfit:wght@500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#12181f;--g:#1f2933;--g2:#323f4b;--mut:#616e7c;--line:#e4e7eb;--tint:#f5f7fa;--gold:#b8924a;--gold2:#e0c48b;--w:1200px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:76px}
+body{font-family:'Vazirmatn','Segoe UI',Tahoma,sans-serif;color:var(--ink);background:#fff;line-height:1.85;font-size:1.02rem;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,.btn,.menu a{font-family:'Noto Kufi Arabic','Vazirmatn',sans-serif;letter-spacing:0}
+html[lang=en] h1,html[lang=en] h2,html[lang=en] h3,html[lang=en] .btn,html[lang=en] .menu a{font-family:'Outfit','Vazirmatn',sans-serif;font-weight:600}
+img,svg,video,iframe{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button,input,select{font:inherit;color:inherit}
+.ltr{direction:ltr;unicode-bidi:isolate}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 24px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 28px;border:0;border-radius:999px;background:var(--g);color:#fff;font-weight:700;cursor:pointer;transition:background .25s,color .25s}
+.btn:hover{background:var(--gold);color:#fff}
+/* ---------- هێدەر ---------- */
+header{position:fixed;top:0;inset-inline:0;z-index:50;background:#fff;border-bottom:1px solid var(--line);transition:background .3s,box-shadow .3s,border-color .3s}
+header.sc{box-shadow:0 12px 32px -22px rgba(18,24,31,.5)}
+.bar{display:flex;align-items:center;gap:28px;height:64px}
+.logo{display:flex;align-items:center;gap:12px;flex:none;color:var(--ink)}
+.logo-img{height:40px;width:auto;max-width:120px;object-fit:contain;border-radius:8px}
+.logo-txt{font:600 1.05rem/1 'Outfit',sans-serif;letter-spacing:.16em;white-space:nowrap}
+.logo-txt b{font-weight:700}
+.logo-img+.logo-txt{padding-inline-start:12px;border-inline-start:1.5px solid var(--line)}
+.menu{display:none;position:fixed;top:64px;inset-inline:0;bottom:0;background:#fff;flex-direction:column;padding:10px 22px 32px;overflow:auto;z-index:49}
+.menu.open{display:flex}
+.menu a{min-height:62px;display:flex;align-items:center;font-size:1.12rem;font-weight:700;border-bottom:1px solid var(--line)}
+.menu .m-cta{justify-content:center;margin-top:26px;border:0;border-radius:999px;background:var(--g);color:#fff;min-height:54px}
+.lang{display:flex;margin-inline-start:auto;background:var(--tint);border:1px solid var(--line);border-radius:999px;padding:3px}
+.lang button{border:0;background:none;border-radius:999px;padding:4px 11px;min-height:30px;font-size:.82rem;font-weight:700;color:var(--mut);cursor:pointer;transition:.25s}
+.lang button.on{background:var(--g);color:#fff}
+.tools{display:none}
+.burger{width:44px;height:44px;border-radius:12px;border:1px solid var(--line);background:#fff;font-size:1.3rem;color:var(--ink);cursor:pointer}
+/* ---------- وێنەی گشتی ---------- */
+.slot{position:relative;width:100%;height:100%;overflow:hidden;background:linear-gradient(135deg,#eceff3,#dfe3e8)}
+.slot>img,.slot>video,.slot>iframe{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border:0}
+.slot>img.hbg{filter:blur(26px) brightness(.85);transform:scale(1.15)}
+.ph{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;text-align:center;color:#9aa5b1;padding:10px}
+.ph svg{width:34px;height:34px}.ph b{font-size:.78rem}.ph small{opacity:.7;font-size:.72rem}
+/* ---------- هیرۆ (مۆبایل) ---------- */
+.hero{position:relative;padding-top:64px;background:#fff}
+.hero .slot{aspect-ratio:1920/840;height:auto}
+.hero .slot>img:not(.hbg),.hero .slot>video{object-fit:contain}
+.hero .txt{position:relative;z-index:3;margin-top:-26px;background:#fff;border-radius:26px 26px 0 0;padding:28px 18px;text-align:center;box-shadow:0 -18px 30px -22px rgba(18,24,31,.55)}
+.eyebrow{display:none}
+.hero h1{font-size:1.5rem;line-height:1.55;font-weight:800;text-wrap:balance}
+.hero h1::before{content:'';display:block;width:44px;height:4px;border-radius:2px;background:var(--gold);margin:0 auto 14px}
+.hero h1 em{font-style:normal;border-bottom:3px solid var(--gold)}
+.hero p{margin:14px auto 0;max-width:34ch;font-size:.92rem;color:var(--mut)}
+/* ---------- بەشەکان ---------- */
+section{padding:56px 0}
+.h2{font-size:1.4rem;font-weight:800;line-height:1.5;text-align:center;text-wrap:balance}
+.h2::before{content:'';display:block;width:40px;height:4px;border-radius:2px;background:var(--gold);margin:0 auto 14px}
+.sub{max-width:56ch;margin:12px auto 0;text-align:center;color:var(--mut);font-size:.92rem;line-height:1.9;text-wrap:pretty}
+#countries{background:linear-gradient(160deg,var(--g2),var(--g) 55%,#ffffff);color:#fff}
+#countries .sub{color:#ffffff}
+.cgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;max-width:720px;margin:28px auto 0}
+.cc{display:flex;flex-direction:column;align-items:center;padding:20px 4px 16px;border-radius:16px;background:rgba(243, 242, 242, 0.06);border:1px solid rgb(253, 253, 253);transition:transform .4s cubic-bezier(.2,.8,.2,1),background .4s,border-color .4s,opacity .7s}
+.cc:hover{transform:translateY(-6px);background:rgba(241, 0, 0, 0.11);border-color:var(--gold)}
+.cc .fl{width:48px;height:48px;border-radius:50%;box-shadow:0 0 0 3px rgba(255,255,255,.9),0 12px 22px -10px rgba(255, 255, 255, 0.6)}
+.cc .fl svg{width:100%;height:100%;border-radius:50%}
+.cc h3{margin-top:14px;font-size:.85rem;font-weight:700}
+#process{background:var(--tint)}
+.steps{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:32px}
+.steps::before{content:'';position:absolute;top:20px;inset-inline:12.5%;height:2px;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.step{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 2px}
+.step small,.step p{display:none}
+.step .n{order:-1;position:relative;z-index:1;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;background:var(--g);color:var(--gold2);font:600 1.05rem/1 'Outfit',sans-serif;border:4px solid var(--tint);box-shadow:0 0 0 2px var(--gold);margin-bottom:12px}
+.step h3{font-size:.72rem;font-weight:800;line-height:1.5}
+.pics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:28px}
+.pics .slot{aspect-ratio:3/4;height:auto;border-radius:12px}
+.pics .slot>img{transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.pics .slot:hover>img{transform:scale(1.05)}
+.cta{padding:56px 12px;background:#fff}
+.box.rq{max-width:var(--w);margin:0 auto;display:grid;grid-template-columns:1fr;overflow:hidden;border-radius:22px;border:1px solid var(--line);box-shadow:0 40px 80px -48px rgba(18,24,31,.6);background:#fff}
+.rq>div{background:linear-gradient(160deg,var(--g2),var(--g) 55%,#12181f);padding:28px 18px;display:flex;flex-direction:column;justify-content:center;color:#cbd2d9}
+.rq>div::before{content:'';width:44px;height:4px;border-radius:2px;background:var(--gold);margin-bottom:18px}
+.rq h2{color:#fff;font-size:1.3rem;line-height:1.5;font-weight:800}
+.rq p{margin-top:10px;font-size:.9rem}
+.rq form{display:grid;grid-template-columns:1fr;gap:12px;padding:24px 16px}
+.rq input,.rq select{width:100%;min-height:48px;padding:0 18px;border:1.5px solid var(--line);border-radius:14px;background:#fff;font-size:16px}
+.rq input:focus,.rq select:focus{outline:0;border-color:var(--gold);box-shadow:0 0 0 3px rgba(184,146,74,.22)}
+.rq .full{min-height:52px}
+/* ---------- فووتەر ---------- */
+footer{background:#12181f;color:#cbd2d9;border-top:3px solid var(--gold);padding:48px 0 24px}
+footer .logo{color:#fff}
+footer .logo-img+.logo-txt{border-color:rgba(255,255,255,.3)}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:26px 16px}
+.fg>div:first-child,.fg .fm{grid-column:1/-1}
+footer h4{color:#fff;font-size:.95rem;margin-bottom:6px}
+footer a,.adr{display:block;padding:4px 0;font-size:.9rem;line-height:1.9}
+footer a:hover{color:var(--gold2)}
+html[dir=rtl] footer a[href^="tel"],html[dir=rtl] footer a[href^="mailto"]{text-align:right}
+.fmap{height:140px;border-radius:14px;overflow:hidden;background:#1c242c;border:1px solid rgba(255,255,255,.14)}
+.fmap iframe{width:100%;height:100%;border:0;filter:grayscale(1) contrast(1.05);transition:filter .5s}
+.fmap:hover iframe{filter:none}
+#map-link{display:inline-block;margin-top:10px;color:#fff;font-weight:700;font-size:.9rem;border-bottom:1px solid rgba(184,146,74,.7)}
+.fb{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:36px;padding-top:22px;border-top:1px solid rgba(255,255,255,.1);font-size:.88rem}
+.soc-row{display:flex;gap:14px}
+.soc-a{position:relative;width:48px;height:48px;padding:0;border-radius:50%;display:grid;place-items:center;color:#fff;box-shadow:0 0 0 1.5px rgba(255,255,255,.18),0 10px 22px -8px rgba(0,0,0,.7);transition:transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s}
+.soc-a:hover{transform:translateY(-5px) scale(1.08);color:#fff}
+.soc-a:active{transform:scale(.95)}
+.soc-a svg{width:24px;height:24px}
+.soc-a[aria-label=instagram]{background:radial-gradient(circle at 30% 107%,#fdf497 0%,#fdf497 5%,#fd5949 45%,#d6249f 60%,#285aeb 90%)}
+.soc-a[aria-label=instagram]:hover{box-shadow:0 0 0 1.5px rgba(255,255,255,.5),0 14px 26px -8px rgba(214,36,159,.75)}
+.soc-a[aria-label=facebook]{background:#0866FF;overflow:hidden}
+.soc-a[aria-label=facebook] svg{width:100%;height:100%;border-radius:50%}
+.soc-a[aria-label=facebook]:hover{box-shadow:0 0 0 1.5px rgba(255,255,255,.5),0 14px 26px -8px rgba(8,102,255,.8)}
+.soc-a[aria-label=tiktok]{background:linear-gradient(145deg,#1a1a1a,#000)}
+.soc-a[aria-label=tiktok] svg{width:22px;height:22px}
+.soc-a[aria-label=tiktok]:hover{box-shadow:0 0 0 1.5px rgba(255,255,255,.5),-6px 8px 22px -8px rgba(37,244,238,.7),6px 8px 22px -8px rgba(254,44,85,.7)}
+.wa{position:fixed;bottom:calc(14px + env(safe-area-inset-bottom));inset-inline-start:14px;z-index:60;width:46px;height:46px;border-radius:50%;background:#1faa59;color:#fff;display:grid;place-items:center;box-shadow:0 6px 18px rgba(18,24,31,.3)}
+.wa svg{width:24px;height:24px}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+/* ---------- تابلێت و کۆمپیوتەر ---------- */
+@media(min-width:761px){
+ section{padding:96px 0}
+ .h2{font-size:clamp(1.7rem,3vw,2.5rem)}
+ .h2::before{width:48px;margin-bottom:18px}
+ .sub{font-size:1.05rem}
+ .cgrid{gap:18px;margin-top:52px}
+ .cc{padding:40px 12px 32px;border-radius:22px}
+ .cc .fl{width:84px;height:84px;box-shadow:0 0 0 4px rgba(255,255,255,.9),0 16px 28px -12px rgba(0,0,0,.6)}
+ .cc h3{margin-top:26px;font-size:1.25rem}
+ .steps{gap:20px;margin-top:64px}
+ .steps::before{top:30px}
+ .step{padding:0 10px}
+ .step p{display:block;margin-top:8px;font-size:.95rem;color:var(--mut);line-height:1.9}
+ .step .n{width:60px;height:60px;font-size:1.5rem;border-width:5px;margin-bottom:20px}
+ .step h3{font-size:1.2rem}
+ .pics{grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:18px;height:520px;margin-top:72px}
+ .pics>div{height:100%}
+ .pics>div:first-child{grid-row:1/3}
+ .pics .slot{aspect-ratio:auto;height:100%;border-radius:22px}
+ .cta{padding:96px 24px}
+ .box.rq{grid-template-columns:1fr 1.25fr;border-radius:26px}
+ .rq>div{padding:56px 44px}
+ .rq h2{font-size:clamp(1.6rem,2.8vw,2.2rem)}
+ .rq form{grid-template-columns:1fr 1fr;padding:56px 44px;align-content:center}
+ .rq .full{grid-column:1/-1;min-height:56px;font-size:1rem}
+ footer{padding:72px 0 28px}
+ .fg{grid-template-columns:1.3fr 1fr 1fr 1.5fr;gap:40px}
+ .fg>div:first-child,.fg .fm{grid-column:auto}
+ .fmap{height:150px}
+ .fb{flex-direction:row;justify-content:space-between;align-items:center;margin-top:48px}
+ .wa{width:56px;height:56px;bottom:calc(20px + env(safe-area-inset-bottom));inset-inline-start:20px}
+}
+@media(min-width:981px){
+ .bar{height:76px;gap:32px}
+ .logo-txt{font-size:1.3rem}
+ .logo-img{height:48px}
+ .menu{display:flex;position:static;flex-direction:row;justify-content:center;flex:1;gap:38px;padding:0;background:none;overflow:visible}
+ .menu a{position:relative;min-height:0;padding:28px 0;border:0;font-size:1rem}
+ .menu a::after{content:'';position:absolute;inset-inline:0;bottom:20px;height:2px;background:var(--gold);transform:scaleX(0);transition:transform .3s}
+ .menu a:hover::after{transform:scaleX(1)}
+ .menu .m-cta{display:none}
+ .lang{margin-inline-start:0}
+ .lang button{padding:4px 14px}
+ .tools{display:block}
+ .tools .btn{min-height:44px;padding:0 26px;font-size:.92rem}
+ .burger{display:none}
+ header:not(.sc){background:transparent;border-color:transparent}
+ header:not(.sc) .logo,header:not(.sc) .menu a{color:#fff}
+ header:not(.sc) .logo-img+.logo-txt{border-color:rgba(255,255,255,.35)}
+ header:not(.sc) .lang{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.25)}
+ header:not(.sc) .lang button{color:#fff}
+ header:not(.sc) .lang button.on{background:#fff;color:var(--ink)}
+ header:not(.sc) .tools .btn{background:#fff;color:var(--ink)}
+ header:not(.sc) .tools .btn:hover{background:var(--gold);color:#fff}
+ .hero{height:100svh;min-height:640px;max-height:920px;padding:0;color:#fff;background:var(--g)}
+ .hero .slot{position:absolute;inset:0;height:100%!important;aspect-ratio:auto!important}
+ .hero .slot>img.hbg{display:none}
+ .hero .slot>img:not(.hbg),.hero .slot>video{object-fit:cover}
+ .hero::after{content:'';position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(to left,rgba(14,19,25,.88) 0%,rgba(14,19,25,.7) 30%,rgba(14,19,25,.25) 58%,rgba(14,19,25,.1) 100%),linear-gradient(to top,rgba(14,19,25,.8) 0%,rgba(14,19,25,0) 40%),linear-gradient(to bottom,rgba(14,19,25,.55) 0%,rgba(14,19,25,0) 22%)}
+ html[dir=ltr] .hero::after{background:linear-gradient(to right,rgba(14,19,25,.88) 0%,rgba(14,19,25,.7) 30%,rgba(14,19,25,.25) 58%,rgba(14,19,25,.1) 100%),linear-gradient(to top,rgba(14,19,25,.8) 0%,rgba(14,19,25,0) 40%),linear-gradient(to bottom,rgba(14,19,25,.55) 0%,rgba(14,19,25,0) 22%)}
+ .hero .txt{position:absolute;inset:0;margin:0;background:none;border-radius:0;box-shadow:none;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;text-align:start;padding:80px max(24px,calc((100% - var(--w))/2 + 24px)) 80px}
+ .hero h1{max-width:20ch;font-size:clamp(2.3rem,4vw,3.8rem);line-height:1.4;text-shadow:0 2px 30px rgba(0,0,0,.4)}
+ .hero h1::before{margin:0 0 24px;width:60px}
+ .hero h1 em{color:var(--gold2);border:0}
+ .hero p{margin:20px 0 0;max-width:44ch;font-size:1.18rem;line-height:2;color:rgba(255,255,255,.92);text-shadow:0 1px 18px rgba(0,0,0,.5)}
+}
+@media(max-width:980px){.bar{padding:0 14px;gap:8px}.burger{flex:none}.lang button{padding:4px 9px;font-size:.78rem}.logo-txt{font-size:.95rem;letter-spacing:.12em}}
+@media(min-width:761px){.box.rq{max-width:calc(var(--w) - 48px)}}
+.ph svg{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+@media(max-width:760px){.pics .ph b,.pics .ph small{display:none}}
+/* ---------- مۆبایل: ڕێکخستنی زیاتر ---------- */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{overflow-wrap:break-word}
+.fg>div,.cgrid>*,.steps>*,.pics>*{min-width:0}
+.hero .txt{overflow-wrap:anywhere}
+@media(max-width:760px){
+ .wrap{padding:0 18px}
+ .hero h1{font-size:1.4rem}
+ .hero p{font-size:.9rem}
+ .btn{padding:0 22px}
+ .rq .full{width:100%}
+}
+@media(max-width:420px){
+ body{font-size:.98rem}
+ .wrap{padding:0 16px}
+ .bar{height:60px;padding:0 12px;gap:6px}
+ .menu{top:60px}
+ html{scroll-padding-top:70px}
+ .hero{padding-top:60px}
+ .logo-img{height:34px;max-width:90px}
+ .logo-txt{font-size:.82rem;letter-spacing:.08em}
+ .lang button{padding:4px 7px;font-size:.72rem;min-height:28px}
+ .burger{width:40px;height:40px;font-size:1.15rem}
+ .hero .txt{padding:24px 16px}
+ .hero h1{font-size:1.25rem}
+ section{padding:44px 0}
+ .h2{font-size:1.25rem}
+ .cc{padding:16px 2px 12px}
+ .cc .fl{width:42px;height:42px}
+ .cc h3{font-size:.78rem}
+ .step h3{font-size:.66rem}
+ .step .n{width:34px;height:34px;font-size:.95rem}
+ .steps::before{top:17px}
+ .cta{padding:44px 10px}
+ .rq>div{padding:24px 16px}
+ .rq h2{font-size:1.15rem}
+ footer{padding:40px 0 20px}
+ footer a,.adr{font-size:.86rem}
+}
+@media(max-width:340px){.logo-txt{display:none}.cgrid{gap:6px}}
+</style>
+</head>
+<body>
+
+<!-- بارێکی بچووکی سەرەوە (پەیوەندی) -->
+
+<!-- هێدەر -->
+<header><div class="wrap bar">
+  <a class="logo" href="#top" id="site-logo"><span class="ltr">HAWRE AUTO</span></a>
+  <nav class="menu" id="menu">
+    <a href="#countries" data-i="nav_cars"></a>
+    <a href="#process" data-i="nav_process"></a>
+    
+    <a href="#contact" data-i="nav_contact"></a>
+    <a class="m-cta" href="#request" data-i="nav_cta"></a>
+  </nav>
+  <div class="lang" id="lang">
+    <button data-l="ckb">کوردی</button>
+    <button data-l="ar">عربي</button>
+    <button data-l="en">EN</button>
+  </div>
+  <div class="tools"><a class="btn" href="#request" data-i="nav_cta"></a></div>
+  <button class="burger" id="burger" aria-label="menu">☰</button>
+</div></header>
+
+<main id="top">
+
+<!-- وێنەی سەرەکی + نووسین لە ژێریدا -->
+<div class="hero">
+  <div id="hero-media"></div>
+  <div class="txt">
+    <span class="eyebrow" data-i="util_tag"></span>
+    <h1><span data-i="h1a"></span> <em data-i="h1b"></em></h1>
+    <p data-i="hero_p"></p>
+  </div>
+</div>
+
+
+
+<!-- وڵاتەکانی هێنان -->
+<section id="countries"><div class="wrap">
+  <h2 class="h2" data-i="cn_h"></h2>
+  <p class="sub" data-i="cn_sub"></p>
+  <div class="cgrid">
+    <a class="cc" href="#request" data-c="us"><span class="fl"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="cu"><circle cx="24" cy="24" r="24"/></clipPath></defs><g clip-path="url(#cu)"><rect width="48" height="48" fill="#fff"/><rect y="0.00" width="48" height="3.69" fill="#b22234"/><rect y="7.38" width="48" height="3.69" fill="#b22234"/><rect y="14.77" width="48" height="3.69" fill="#b22234"/><rect y="22.16" width="48" height="3.69" fill="#b22234"/><rect y="29.54" width="48" height="3.69" fill="#b22234"/><rect y="36.92" width="48" height="3.69" fill="#b22234"/><rect y="44.31" width="48" height="3.69" fill="#b22234"/><rect width="22" height="25.8" fill="#3c3b6e"/><circle cx="3.0" cy="3.0" r=".9" fill="#fff"/><circle cx="7.2" cy="3.0" r=".9" fill="#fff"/><circle cx="11.4" cy="3.0" r=".9" fill="#fff"/><circle cx="15.6" cy="3.0" r=".9" fill="#fff"/><circle cx="19.8" cy="3.0" r=".9" fill="#fff"/><circle cx="3.0" cy="7.4" r=".9" fill="#fff"/><circle cx="7.2" cy="7.4" r=".9" fill="#fff"/><circle cx="11.4" cy="7.4" r=".9" fill="#fff"/><circle cx="15.6" cy="7.4" r=".9" fill="#fff"/><circle cx="19.8" cy="7.4" r=".9" fill="#fff"/><circle cx="3.0" cy="11.8" r=".9" fill="#fff"/><circle cx="7.2" cy="11.8" r=".9" fill="#fff"/><circle cx="11.4" cy="11.8" r=".9" fill="#fff"/><circle cx="15.6" cy="11.8" r=".9" fill="#fff"/><circle cx="19.8" cy="11.8" r=".9" fill="#fff"/><circle cx="3.0" cy="16.2" r=".9" fill="#fff"/><circle cx="7.2" cy="16.2" r=".9" fill="#fff"/><circle cx="11.4" cy="16.2" r=".9" fill="#fff"/><circle cx="15.6" cy="16.2" r=".9" fill="#fff"/><circle cx="19.8" cy="16.2" r=".9" fill="#fff"/><circle cx="3.0" cy="20.6" r=".9" fill="#fff"/><circle cx="7.2" cy="20.6" r=".9" fill="#fff"/><circle cx="11.4" cy="20.6" r=".9" fill="#fff"/><circle cx="15.6" cy="20.6" r=".9" fill="#fff"/><circle cx="19.8" cy="20.6" r=".9" fill="#fff"/></g></svg></span><h3 data-i="cn1a"></h3></a>
+    <a class="cc" href="#request" data-c="ca"><span class="fl"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="cc2"><circle cx="24" cy="24" r="24"/></clipPath></defs><g clip-path="url(#cc2)"><rect width="48" height="48" fill="#fff"/><rect width="12" height="48" fill="#d52b1e"/><rect x="36" width="12" height="48" fill="#d52b1e"/><polygon points="24.0,10.0 26.2,14.0 28.8,13.0 28.0,19.0 31.6,16.6 32.2,18.6 29.6,22.0 32.8,23.4 32.2,25.0 25.4,24.2 25.0,30.0 23.0,30.0 22.6,24.2 15.8,25.0 15.2,23.4 18.4,22.0 15.8,18.6 16.4,16.6 20.0,19.0 19.2,13.0 21.8,14.0 24.0,10.0" fill="#d52b1e"/></g></svg></span><h3 data-i="cn2a"></h3></a>
+    <a class="cc" href="#request" data-c="ae"><span class="fl"><svg viewBox="0 0 48 48" aria-hidden="true"><defs><clipPath id="ca2"><circle cx="24" cy="24" r="24"/></clipPath></defs><g clip-path="url(#ca2)"><rect width="48" height="16" fill="#00732f"/><rect y="16" width="48" height="16" fill="#fff"/><rect y="32" width="48" height="16" fill="#12181f"/><rect width="14" height="48" fill="#ff0000"/></g></svg></span><h3 data-i="cn3a"></h3></a>
+  </div>
+</div></section>
+
+<!-- پرۆسەی هێنان -->
+<section id="process"><div class="wrap">
+  <h2 class="h2" data-i="p_h"></h2>
+  <p class="sub" data-i="p_sub"></p>
+    <div class="steps path">
+    <div class="step"><small data-i="p1a"></small><h3 data-i="p1b"></h3><p data-i="p1c"></p><div class="n">1</div></div>
+    <div class="step"><small data-i="p2a"></small><h3 data-i="p2b"></h3><p data-i="p2c"></p><div class="n">2</div></div>
+    <div class="step"><small data-i="p3a"></small><h3 data-i="p3b"></h3><p data-i="p3c"></p><div class="n">3</div></div>
+    <div class="step"><small data-i="p4a"></small><h3 data-i="p4b"></h3><p data-i="p4c"></p><div class="n">4</div></div>
+  </div>
+  <div class="pics" id="pics"></div>
+</div></section>
+
+<!-- ڤیدیۆکان (ئەگەر MEDIA.videos بەتاڵ بێت خۆی دەشاردرێتەوە) -->
+
+
+<!-- بۆچی ئێمە -->
+
+
+
+
+<div class="cta" id="request"><div class="box rq">
+  <div><h2 data-i="f_h"></h2><p data-i="f_p"></p></div>
+  <form id="rq-form">
+    <input name="n" required autocomplete="name" data-ph="ph_n" aria-label="name">
+    <select name="c" id="rq-c" required aria-label="country"><option value="" disabled selected data-i="f_c"></option><option value="us" data-i="cn1a"></option><option value="ca" data-i="cn2a"></option><option value="ae" data-i="cn3a"></option></select>
+    <input name="b" required data-ph="ph_b" aria-label="brand">
+    <input name="m" required data-ph="ph_m" aria-label="model">
+    <button class="btn full" type="submit" data-i="f_send"></button>
+  </form>
+</div></div>
+</main>
+
+<footer id="contact"><div class="wrap">
+  <div class="fg">
+    <div>
+      <a class="logo" href="#top" id="footer-logo"><span class="ltr">HAWRE AUTO</span></a>
+      <p style="margin-top:14px;max-width:34ch" data-i="ft_about"></p>
+    </div>
+    <div><h4 data-i="nav_cars"></h4><a href="#countries" data-i="cn1a"></a><a href="#countries" data-i="cn2a"></a><a href="#countries" data-i="cn3a"></a></div>
+    
+    <div><h4 data-i="nav_contact"></h4><a class="ltr" href="tel:+9647701523981">0770 152 3981</a><a href="mailto:info@hawreauto.com">info@hawreauto.com</a><span class="adr" data-i="addr"></span></div>
+    <div class="fm"><div class="fmap" id="map"></div><a id="map-link" href="#" target="_blank" rel="noopener" data-i="loc_btn"></a></div>
+  </div>
+  <div class="fb"><span data-i="rights"></span><div class="soc-row" id="soc"></div></div>
+</div></footer>
+
+<!-- نەخشە (لە خوارترین شوێنی لاپەڕە) -->
+
+
+<!-- سۆشیاڵ میدیا (لە خوارترین شوێن) -->
+
+
+<a class="wa" href="https://wa.me/9647701523981" target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 32 32"><path fill="currentColor" d="M16 3.2A12.75 12.75 0 0 0 5.06 22.5L3.5 28.4l6.06-1.5A12.8 12.8 0 1 0 16 3.2Zm0 23.1c-1.82 0-3.61-.48-5.18-1.39l-.37-.22-3.6.89.93-3.5-.24-.39A10.35 10.35 0 1 1 16 26.3Zm5.67-7.73c-.31-.16-1.84-.91-2.12-1.02-.29-.11-.5-.16-.71.16-.21.31-.81 1.02-.99 1.23-.18.21-.37.24-.68.08-.31-.16-1.31-.48-2.5-1.54-.92-.82-1.54-1.83-1.72-2.14-.18-.31-.02-.48.14-.64.14-.14.31-.37.47-.55.16-.18.21-.31.31-.52.1-.21.05-.39-.03-.55-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.6c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.22 3.39 5.38 4.75.75.32 1.34.51 1.8.65.76.24 1.45.2 2 .12.61-.09 1.84-.75 2.1-1.47.26-.72.26-1.34.18-1.47-.08-.13-.29-.21-.6-.37Z"/></svg></a>
+
+<script>
+/* =====================================================================
+   ★★★ شوێنی هەموو وێنە و ڤیدیۆکان — تەنها لێرە بگۆڕە ★★★
+   - وێنە: ناوی فایل (لە هەمان پۆشەی ئەم فایلە) یان لینکی تەواو
+   - ڤیدیۆ: فایلی .mp4 یان لینکی یوتیوب
+   - هەر شوێنێک بەتاڵ بێت، لەسەر ماڵپەڕەکە شوێنەکەی بە ناوی ئەم کۆدە دەردەکەوێت
+   ===================================================================== */
+const MEDIA = {
+
+  /* [1] لۆگۆ (هێدەر + فوتەر) — PNG یان JPEG، باشترین قەبارە 400×120 */
+  logo: "logo.jpeg",
+
+  /* [2] ئایکۆنی تابی وێبگەڕ — PNG 64×64 */
+  favicon: "logo2.PNG",
+
+  /* [3] وێنەی سەرەکی (سەرەوەی ماڵپەڕ) — هەر قەبارەیەک بێت هەمووی دیار دەبێت */
+  hero: { image: "bagraund.jpeg", video: "" },
+
+  /* [6] ڤیدیۆکان — بەتاڵ بێت بەشەکە خۆی دەشاردرێتەوە
+         نموونە: videos: [ { src: "https://youtu.be/XXXXXXXXXXX", title: "..." } ] */
+  videos: [],
+
+  /* [6b] وێنەکانی بەشی پرۆسەی هێنان — ٣ وێنە 1200×900 */
+  process: ["car-1.jpeg", "car-2.jpeg", "car-3.jpeg"],
+
+  /* [7] نەخشە — query: ناوی شوێنەکەت لە گووگڵ ماپس · link: لینکی Share ی خۆت */
+  location: { query: "HAWRE-AUTO", link: "https://maps.app.goo.gl/RgQvhafY185hQedo9?g_st=iw" },
+
+  /* [8] لینکی سۆشیاڵ میدیا — لینکی پەیجەکانی خۆت لێرە دابنێ (لە جیاتی "#") */
+  social: { tiktok: "https://www.tiktok.com/@hawre_auto?_r=1&_t=ZS-9AbRhbMhCc6", facebook: "https://www.facebook.com/share/1EymbPVZb5/?mibextid=wwXIfr", instagram: "https://www.instagram.com/hawre_cars?xtok=YWcyejRsZzl2Ym16" }
+};
+
+/* ============ وەرگێڕان: کوردی · عەرەبی · ئینگلیزی ============ */
+const I18N = {
+ckb:{
+ title:"HAWRE AUTO — هاوردەکردنی سەیارە لە ئەمریکا، کەنەدا و ئیماراتەوە",
+ util_tag:"هاوردەکردنی سەیارە لە ئەمریکا، کەنەدا و ئیماراتەوە بۆ کوردستان", util_find:"دۆزینەوەی ئێمە",
+ nav_cars:"وڵاتەکانی هێنان",  nav_process:"پرۆسەی هێنان", nav_why:"بۆچی ئێمە", nav_contact:"پەیوەندی", nav_cta:"داواکردنی سەیارە",
+ h1a:"سەیارەکەت لە ئەمریکا، کەنەدا و ئیماراتەوە،", h1b:"بۆ گاراجی خۆت",
+ hero_p:"لە ئەمریکا، کەنەدا و ئیماراتەوە سەیارە هەڵدەبژێرین، پشکنینی تەواو دەکەین و دەیگەیەنین بۆ کوردستان.",
+ hero_b1:"وڵاتەکانی هێنان", hero_b2:"پرۆسەکە چۆنە؟",
+ cn_h:"هێنان لە سێ وڵاتەوە", cn_sub:"وڵاتی هێنان هەڵبژێرە، گەڕان و پشکنین و گواستنەوە و گومرگ لەلایەن ئێمەوە ئەنجام دەدرێت.", cn1a:"ئەمریکا", cn1b:"هێنان لە ئەمریکاوە", cn1c:"لە بازاڕی ئەمریکا سەیارەی دڵخوازت دەدۆزینەوە، پشکنینی دەکەین و دەیگەیەنین بۆ کوردستان.", cn2a:"کەنەدا", cn2b:"هێنان لە کەنەداوە", cn2c:"لە کەنەدا سەیارەی دڵخوازت دەدۆزینەوە، بەڵگەنامەکانی ڕوون دەکەین و دەیگەیەنین بۆ کوردستان.", cn3a:"ئیمارات", cn3b:"هێنان لە ئیماراتەوە", cn3c:"لە ئیمارات سەیارەی دڵخوازت دەدۆزینەوە، پشکنینی تەواو دەکەین و دەیگەیەنین بۆ کوردستان.",
+                           p_h:"لە هەڵبژاردن هەتا ڕادەستکردن", p_sub:"مارکە و مۆدێلی دڵخوازت پێمان بڵێ — بەگوێرەی داواکاریت سەیارەکەت لە ئەمریکا، کەنەدا یان ئیمارات بۆ دەدۆزینەوە.",
+ p1a:"وڵاتی سەرچاوە", p1b:"هەڵبژاردن", p1c:"مارکە و مۆدێلی دڵخوازت پێمان بڵێ تاوەکو لە ئەمریکا، کەنەدا یان ئیمارات لێی بگەڕێین.",
+ p2a:"پێش بارکردن", p2b:"پشکنین و نرخ", p2c:"پشکنینی تەواوی میکانیکی و بەڵگەنامەیی ئەنجام دەدەین و نرخی کۆتایی بەبێ خەرجی شاراوە دەدەین.",
+ p3a:"گومرگ و گواستنەوە", p3b:"ڕێگای گەیشتن", p3c:"بارکردن، گوماردن و گەیاندنی سەیارەکە بۆ کوردستان بە تەواوی لەلایەن تیمەکەمانەوە ئەنجام دەدرێت.",
+ p4a:"سلێمانی", p4b:"ڕادەستکردن", p4c:"سەیارەکەت بە بەڵگەنامە و گەرەنتییەوە ڕادەست دەکرێت و ئامادەیە بۆ ڕێگا.",
+ v_h:"ڤیدیۆکانمان", v_sub:"ڤیدیۆی هاوردەکردنی سەیارەکانمان ببینە.",
+ w_h:"متمانە لە هەر هەنگاوێکدا", w_sub:"هەر سەیارەیەک پێش ڕادەستکردن بە چەند قۆناغی پشکنین و بەڵگەنامەدا تێدەپەڕێت.",
+ w1a:"پشکنینی سێ قۆناغی", w1b:"پێش کڕین، پێش بارکردن و پێش ڕادەستکردن — هەر سەیارەیەک سێ جار پشکنین دەکرێت.",
+ w2a:"بەڵگەنامەی ڕوون", w2b:"مێژووی سەیارە، ڕاپۆرتی مسۆگەری و بەڵگەی گومرگی پێش وەرگرتنی پارە پێشکەش دەکرێت.",
+ w3a:"نرخی ڕاستەقینە", w3b:"نرخی سەیارە، گواستنەوە و گومرگ بە جیاواز ڕوون دەکرێتەوە — هیچ خەرجی شاراوە نییە.",
+ w4a:"خزمەتگوزاری دوای فرۆشتن", w4b:"پاش ڕادەستکردنیش تیمی گاراجمان ئامادەیە بۆ چاودێری و کاری تەکنیکی.",
+ c_h:"ئامادەیت سەیارەکەت بۆ بهێنین؟", c_p:"پەیوەندیمان پێوە بکە و مارکە و مۆدێلی سەیارەکەت پێمان بڵێ.", c_btn:"پەیوەندی لە ڕێگەی واتسئاپ",
+ ft_about:"هاوردەکردنی سەیارە لە ئەمریکا، کەنەدا و ئیماراتەوە بۆ کوردستان — بە متمانە و ڕوونی.",  ft_serv:"خزمەتگوزاری",
+ addr:"سلێمانی، کوردستان", rights:"© ٢٠٢٦ HAWRE AUTO. هەموو مافەکان پارێزراون.",
+ loc_h:"شوێنی ئێمە", loc_btn:"کردنەوە لە نەخشە", soc_h:"شوێنمان بکەوە لە سۆشیاڵ میدیا",
+ faq_h:"پرسیارە باوەکان", faq_sub:"وەڵامی ئەو شتانەی زۆرتر لێمان دەپرسرێت.",
+ q1:"هێنانەکە چەند دەخایەنێت؟", a1:"بەگوێرەی وڵاتی سەرچاوە و جۆری گواستنەوە جیاوازە. دوای دیاریکردنی سەیارەکە، کاتی مەزەندەکراو بە ڕوونی پێت دەڵێین.",
+ q2:"گومرگ چۆن ئەنجام دەدرێت؟", a2:"گوماردن و بەڵگەنامەکان لەلایەن تیمەکەمانەوە ئەنجام دەدرێت، و نرخی گومرگ پێش بڕیاردان بە جیا ڕوون دەکرێتەوە.",
+ q3:"گەرەنتی چۆنە؟", a3:"سەیارەکان ١٢ مانگ گەرەنتییان هەیە، و پاش ڕادەستکردنیش تیمی گاراجمان ئامادەیە بۆ چاودێری.",
+ q4:"شێوازی پارەدان چۆنە؟", a4:"شێوازی پارەدان لەگەڵ تۆ ڕێک دەخرێت و هەموو وردەکارییەکان لە ڕێگەی واتسئاپ پێش دەستپێکردن ڕوون دەکرێنەوە.",
+ f_h:"داواکردنی سەیارە", f_p:"زانیارییەکان پڕ بکەرەوە، ڕاستەوخۆ دەچیتە واتسئاپ بە نامەیەکی ئامادەکراو.", ph_n:"ناوت", ph_b:"مارکە (وەک Toyota)", ph_m:"مۆدێل (وەک Camry 2022)", f_c:"وڵاتی هێنان", f_send:"ناردن بە واتسئاپ",
+ wa_msg:"سڵاو، ناوم: {n}\nدەمەوێت ئەم سەیارەیەم بۆ بهێنن:\nمارکە: {b}\nمۆدێل: {m}\nوڵاتی هێنان: {c}",
+             },
+ar:{
+ title:"HAWRE AUTO — استيراد السيارات من أمريكا وكندا والإمارات",
+ util_tag:"استيراد السيارات من أمريكا وكندا والإمارات إلى كردستان", util_find:"موقعنا",
+ nav_cars:"دول الاستيراد",  nav_process:"آلية الاستيراد", nav_why:"لماذا نحن", nav_contact:"اتصل بنا", nav_cta:"اطلب سيارة",
+ h1a:"سيارتك من أمريكا وكندا والإمارات،", h1b:"إلى كراجك",
+ hero_p:"نختار السيارة من أمريكا وكندا والإمارات، نفحصها بالكامل ونوصلها إلى كردستان.",
+ hero_b1:"دول الاستيراد", hero_b2:"كيف تتم العملية؟",
+ cn_h:"نستورد لك من ثلاث دول", cn_sub:"اختر بلد الاستيراد، ونتولى نحن البحث والفحص والشحن والتخليص الجمركي.", cn1a:"أمريكا", cn1b:"الاستيراد من أمريكا", cn1c:"نبحث لك عن السيارة المطلوبة في السوق الأمريكي، نفحصها ونوصلها إلى كردستان.", cn2a:"كندا", cn2b:"الاستيراد من كندا", cn2c:"نبحث لك عن السيارة المطلوبة في كندا، نوضح وثائقها ونوصلها إلى كردستان.", cn3a:"الإمارات", cn3b:"الاستيراد من الإمارات", cn3c:"نبحث لك عن السيارة المطلوبة في الإمارات، نفحصها بالكامل ونوصلها إلى كردستان.",
+                           p_h:"من الاختيار حتى التسليم", p_sub:"أخبرنا بالماركة والموديل المطلوبين وسنبحث لك عن السيارة في أمريكا أو كندا أو الإمارات.",
+ p1a:"بلد المصدر", p1b:"الاختيار", p1c:"أخبرنا بالماركة والموديل المطلوبين لنبحث عنها في أمريكا أو كندا أو الإمارات.",
+ p2a:"قبل الشحن", p2b:"الفحص والسعر", p2c:"نجري فحصاً ميكانيكياً ووثائقياً كاملاً ونعطيك السعر النهائي دون أي تكاليف مخفية.",
+ p3a:"الجمارك والنقل", p3b:"رحلة الوصول", p3c:"فريقنا يتولى الشحن والتخليص الجمركي وإيصال السيارة إلى كردستان بالكامل.",
+ p4a:"السليمانية", p4b:"التسليم", p4c:"تُسلَّم السيارة مع الوثائق والضمان وجاهزة للطريق.",
+ v_h:"فيديوهاتنا", v_sub:"شاهد عمليات استيراد سياراتنا بالفيديو.",
+ w_h:"ثقة في كل خطوة", w_sub:"تمر كل سيارة بعدة مراحل من الفحص والتوثيق قبل التسليم.",
+ w1a:"فحص بثلاث مراحل", w1b:"قبل الشراء وقبل الشحن وقبل التسليم — تُفحص كل سيارة ثلاث مرات.",
+ w2a:"وثائق واضحة", w2b:"نقدم تاريخ السيارة وتقرير الفحص ووثائق الجمارك قبل استلام أي مبلغ.",
+ w3a:"سعر حقيقي", w3b:"سعر السيارة والنقل والجمارك يُوضَّح بشكل منفصل — لا توجد تكاليف مخفية.",
+ w4a:"خدمة ما بعد البيع", w4b:"حتى بعد التسليم، فريق الكراج لدينا جاهز للصيانة والأعمال الفنية.",
+ c_h:"هل أنت مستعد لاستيراد سيارتك؟", c_p:"تواصل معنا وأخبرنا بالماركة والموديل الذي تريده.", c_btn:"تواصل عبر واتساب",
+ ft_about:"استيراد السيارات من أمريكا وكندا والإمارات إلى كردستان — بثقة ووضوح.",  ft_serv:"الخدمات",
+ addr:"السليمانية، كردستان", rights:"© ٢٠٢٦ HAWRE AUTO. جميع الحقوق محفوظة.",
+ loc_h:"موقعنا", loc_btn:"افتح في الخريطة", soc_h:"تابعنا على وسائل التواصل الاجتماعي",
+ faq_h:"الأسئلة الشائعة", faq_sub:"إجابات على أكثر ما يُسأل عنه.",
+ q1:"كم تستغرق عملية الاستيراد؟", a1:"تختلف حسب بلد المصدر ونوع الشحن. بعد تحديد السيارة نخبرك بالمدة المتوقعة بوضوح.",
+ q2:"كيف تتم الإجراءات الجمركية؟", a2:"يتولى فريقنا التخليص الجمركي والوثائق، ونوضح لك رسوم الجمارك بشكل منفصل قبل القرار.",
+ q3:"ما هو الضمان؟", a3:"تأتي السيارات بضمان ١٢ شهراً، وبعد التسليم يبقى فريق الكراج جاهزاً للصيانة.",
+ q4:"ما هي طريقة الدفع؟", a4:"نتفق معك على طريقة الدفع، ونوضح كل التفاصيل عبر واتساب قبل البدء.",
+ f_h:"اطلب سيارتك", f_p:"املأ البيانات وستنتقل مباشرة إلى واتساب برسالة جاهزة.", ph_n:"اسمك", ph_b:"الماركة (مثل Toyota)", ph_m:"الموديل (مثل Camry 2022)", f_c:"بلد الاستيراد", f_send:"إرسال عبر واتساب",
+ wa_msg:"مرحباً، اسمي: {n}\nأريد استيراد هذه السيارة:\nالماركة: {b}\nالموديل: {m}\nبلد الاستيراد: {c}",
+             },
+en:{
+ title:"HAWRE AUTO — Car import from the USA, Canada and the UAE",
+ util_tag:"Importing cars from the USA, Canada and the UAE to Kurdistan", util_find:"Find us",
+ nav_cars:"Import countries",  nav_process:"How it works", nav_why:"Why us", nav_contact:"Contact", nav_cta:"Request a car",
+ h1a:"Your car, from the USA, Canada and the UAE,", h1b:"to your own garage",
+ hero_p:"We select cars from the USA, Canada and the UAE, inspect them thoroughly and deliver them to Kurdistan.",
+ hero_b1:"Import countries", hero_b2:"How does it work?",
+ cn_h:"We import from three countries", cn_sub:"Choose the country and we handle the search, inspection, shipping and customs.", cn1a:"USA", cn1b:"Import from the USA", cn1c:"We find the car you want on the American market, inspect it and deliver it to Kurdistan.", cn2a:"Canada", cn2b:"Import from Canada", cn2c:"We find the car you want in Canada, clear up its paperwork and deliver it to Kurdistan.", cn3a:"UAE", cn3b:"Import from the UAE", cn3c:"We find the car you want in the UAE, inspect it fully and deliver it to Kurdistan.",
+                           p_h:"From selection to delivery", p_sub:"Tell us the make and model you want and we'll find the car for you in the USA, Canada or the UAE.",
+ p1a:"Source country", p1b:"Selection", p1c:"Tell us the make and model you want and we'll search for it in the USA, Canada or the UAE.",
+ p2a:"Before shipping", p2b:"Inspection & price", p2c:"We run a full mechanical and paperwork inspection and give you a final price with no hidden costs.",
+ p3a:"Customs & transport", p3b:"On the way", p3c:"Our team handles loading, customs clearance and delivery of the car to Kurdistan.",
+ p4a:"Sulaymaniyah", p4b:"Handover", p4c:"Your car is handed over with its documents and warranty, ready for the road.",
+ v_h:"Our videos", v_sub:"Watch our car imports on video.",
+ w_h:"Trust at every step", w_sub:"Every car goes through several inspection and documentation stages before handover.",
+ w1a:"Three-stage inspection", w1b:"Before purchase, before shipping and before handover — every car is checked three times.",
+ w2a:"Clear documents", w2b:"Vehicle history, inspection report and customs papers are provided before any payment.",
+ w3a:"Honest pricing", w3b:"Car, shipping and customs costs are shown separately — nothing hidden.",
+ w4a:"After-sales service", w4b:"Even after handover, our garage team is ready for maintenance and technical work.",
+ c_h:"Ready to import your car?", c_p:"Get in touch and tell us the make and model you want.", c_btn:"Contact us on WhatsApp",
+ ft_about:"Importing cars from the USA, Canada and the UAE to Kurdistan — with trust and transparency.",  ft_serv:"Services",
+ addr:"Sulaymaniyah, Kurdistan", rights:"© 2026 HAWRE AUTO. All rights reserved.",
+ loc_h:"Our location", loc_btn:"Open in Maps", soc_h:"Follow us on social media",
+ faq_h:"Frequently asked questions", faq_sub:"Answers to what we get asked most.",
+ q1:"How long does an import take?", a1:"It depends on the source country and shipping method. Once the car is chosen, we give you a clear estimated timeline.",
+ q2:"How does customs work?", a2:"Our team handles customs clearance and paperwork, and the customs cost is shown separately before you decide.",
+ q3:"What does the warranty cover?", a3:"Cars come with a 12-month warranty, and our garage team is ready for maintenance after handover.",
+ q4:"How do I pay?", a4:"We agree the payment method with you, and every detail is explained on WhatsApp before we start.",
+ f_h:"Request your car", f_p:"Fill in the details and you'll go straight to WhatsApp with a ready-made message.", ph_n:"Your name", ph_b:"Make (e.g. Toyota)", ph_m:"Model (e.g. Camry 2022)", f_c:"Import country", f_send:"Send on WhatsApp",
+ wa_msg:"Hello, my name is {n}.\nI'd like you to import this car for me:\nMake: {b}\nModel: {m}\nCountry: {c}",
+             }};
+
+/* ============ فەرمانەکانی ماڵپەڕ (دەست لێ مەدە) ============ */
+const $=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let lang='ckb';
+try{lang=localStorage.getItem('hawre-lang')||'ckb'}catch(e){}
+if(!I18N[lang])lang='ckb';
+const t=k=>I18N[lang][k]??I18N.ckb[k]??k;
+
+const ICON={
+  img:'<svg viewBox="0 0 48 48"><rect x="6" y="9" width="36" height="30" rx="3"/><circle cx="17" cy="20" r="3.5"/><path d="m6 34 11-10 8 7 6-5 11 9"/></svg>',
+  vid:'<svg viewBox="0 0 48 48"><rect x="6" y="9" width="36" height="30" rx="3"/><path d="m20 18 11 6-11 6z"/></svg>'
+};
+const ytId=u=>{const m=String(u).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);return m?m[1]:null};
+const player=(src,poster,bg)=>{
+  const id=ytId(src);
+  if(id)return `<iframe src="https://www.youtube.com/embed/${id}${bg?`?autoplay=1&mute=1&loop=1&controls=0&playlist=${id}`:''}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen loading="lazy" title="video"></iframe>`;
+  const p=poster?` poster="${esc(poster)}"`:'';
+  return bg?`<video src="${esc(src)}"${p} autoplay muted loop playsinline onerror="this.remove()"></video>`
+           :`<video src="${esc(src)}"${p} controls playsinline preload="metadata" onerror="this.remove()"></video>`;
+};
+/* m={image,video,poster} · key=ناوی ئەم شوێنە لە MEDIA · size=قەبارەی باش */
+const slot=(m,key,size,o={})=>{
+  m=m||{};let top='';
+  if(m.video)top=player(m.video,m.poster||m.image,o.bg);
+  else if(m.image)top=`<img src="${esc(m.image)}" alt="HAWRE AUTO" decoding="async" ${o.eager?'fetchpriority="high"':'loading="lazy"'} onerror="this.remove()">`;
+  return `<div class="slot"><div class="ph">${ICON[o.kind||'img']}<b>${esc(key)}</b>${size?`<small>${size}</small>`:''}</div>${top}</div>`;
+};
+const logoHtml=()=>(MEDIA.logo?`<img src="${esc(MEDIA.logo)}" alt="" class="logo-img" onerror="this.remove()">`:'')+'<span class="logo-txt ltr"><b>HAWRE</b> AUTO</span>';
+
+/* ---- دانانی میدیا ---- */
+$('site-logo').innerHTML=logoHtml();
+$('footer-logo').innerHTML=logoHtml();
+if(MEDIA.favicon)$('favicon').href=MEDIA.favicon;
+$('hero-media').outerHTML=slot(MEDIA.hero,'MEDIA.hero.image','1920×840',{bg:true,eager:true});
+$('pics').innerHTML=[0,1,2].map(i=>`<div>${slot({image:(MEDIA.process||[])[i]},'MEDIA.process['+i+']','1200×900')}</div>`).join('');
+(()=>{ /* وێنەی سەرەکی: ڕێژەی وێنەکە وەردەگرێت + لایەکانی بە لێڵی پڕ دەکاتەوە */
+  const s=document.querySelector('.hero .slot'),i=s.querySelector('img');
+  if(i){const c=i.cloneNode();c.className='hbg';c.setAttribute('aria-hidden','true');c.onerror=()=>c.remove();i.before(c);
+    const fit=()=>{if(i.naturalWidth)s.style.aspectRatio=i.naturalWidth+'/'+i.naturalHeight};
+    i.complete?fit():i.addEventListener('load',fit)}
+})();
+
+/* ---- زمان ---- */
+function setLang(l){
+  lang=l;try{localStorage.setItem('hawre-lang',l)}catch(e){}
+  const h=document.documentElement;h.lang=l;h.dir=l==='en'?'ltr':'rtl';
+  document.title=t('title');
+  document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
+  document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
+  document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+}
+
+/* ---- کرداری دوگمەکان ---- */
+document.querySelectorAll('#lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
+$('burger').onclick=()=>{const o=$('menu').classList.toggle('open');document.body.style.overflow=o?'hidden':''};
+document.querySelectorAll('#menu a').forEach(a=>a.onclick=()=>{$('menu').classList.remove('open');document.body.style.overflow=''});
+
+/* ---- سۆشیاڵ میدیا ---- */
+(()=>{const S=MEDIA.social||{};
+const I={
+  tiktok:'<svg viewBox="0 0 24 24" style="overflow:visible"><path fill="#25F4EE" transform="translate(-.9 -.9)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#FE2C55" transform="translate(.9 .9)" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/><path fill="#fff" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>',
+  facebook:'<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11.9" fill="#fff"/><path fill="#0866FF" d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/></svg>',
+  instagram:'<svg viewBox="0 0 24 24" fill="currentColor"><path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/></svg>'
+};
+$('soc').innerHTML=Object.keys(I).map(k=>`<a class="soc-a" href="${esc(S[k]||'#')}" target="_blank" rel="noopener" aria-label="${k}">${I[k]}</a>`).join('');})();
+
+(()=>{const L=MEDIA.location||{},q=encodeURIComponent(L.query||'');
+ $('map').innerHTML=`<iframe src="https://www.google.com/maps?q=${q}&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="map"></iframe>`;
+ $('map-link').href=L.link||`https://www.google.com/maps?q=${q}`;})();
+
+/* ---- فۆڕمی واتسئاپ ---- */
+$('rq-form').onsubmit=e=>{e.preventDefault();const f=e.target,v=n=>f.elements[n].value.trim(),c=f.elements.c;
+  const m=t('wa_msg').replace('{n}',()=>v('n')).replace('{b}',()=>v('b')).replace('{m}',()=>v('m')).replace('{c}',()=>c.options[c.selectedIndex].textContent);
+  window.open('https://wa.me/9647701523981?text='+encodeURIComponent(m),'_blank')};
+document.querySelectorAll('.cc').forEach(a=>a.addEventListener('click',()=>{$('rq-c').value=a.dataset.c}));
+
+/* ---- دەرکەوتنی نەرم لە سڕۆڵ ---- */
+(()=>{if(!('IntersectionObserver' in window))return;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const el=e.target;
+    el.classList.add('in');io.unobserve(el);
+    setTimeout(()=>el.style.transitionDelay='',1500)}),{threshold:.15});
+  document.querySelectorAll('.h2,.sub,.cc,.step,.pics>div,.vid,.tr>div,.faq details,.rq,.feat').forEach(el=>{
+    const i=[...el.parentNode.children].indexOf(el);
+    if(el.matches('.cc,.step,.pics>div,.vid,.tr>div'))el.style.transitionDelay=(i*0.1)+'s';
+    el.classList.add('rv');io.observe(el)});
+})();
+
+addEventListener('scroll',()=>document.querySelector('header').classList.toggle('sc',scrollY>8),{passive:true});
+setLang(lang);
+</script>
+</body>
+</html>
