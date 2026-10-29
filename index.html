@@ -12,7 +12,7 @@
 <link rel="icon" id="favicon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&family=Noto+Kufi+Arabic:wght@700;800&family=Outfit:wght@600;700&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&family=Noto+Kufi+Arabic:wght@700;800&family=Cairo:wght@600;700;800&family=Outfit:wght@600;700&family=Cinzel:wght@700&display=swap" rel="stylesheet">
 <style>
 :root{--w:1040px;--ink:#1a0a0e;--wine:#7a1530;--wine2:#6e1428}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -313,59 +313,90 @@ body::before{display:none!important}
 #aur .a3{background:radial-gradient(circle,rgba(255,140,120,.14),transparent 62%)}
 #aur::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 40%,transparent 45%,rgba(10,1,4,.45) 100%)}
 
-#intro{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;overflow:hidden;direction:ltr;cursor:pointer;
-background:radial-gradient(ellipse 70% 55% at 50% 50%,#3d0b17 0%,#1a0409 55%,#050102 100%);transition:opacity 1s ease .3s,transform 1.6s cubic-bezier(.6,0,.2,1),filter 1s}
-#intro.out{opacity:0;pointer-events:none;transition:opacity 1.1s ease .9s}
-#intro .fl{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 50%,rgba(255,236,190,.95) 0%,rgba(255,190,90,.55) 22%,transparent 60%)}
-#intro.out .fl{animation:fls 1.5s ease-out forwards}
-@keyframes fls{0%{opacity:0;transform:scale(.4)}25%{opacity:1}100%{opacity:0;transform:scale(2.2)}}
-#intro.out .title{transition:letter-spacing 1.4s cubic-bezier(.3,.6,.2,1),opacity 1s ease .15s,filter 1s ease;letter-spacing:.7em;opacity:0;filter:blur(8px) brightness(2.2)}
-#intro.out .sub,#intro.out .dust,#intro.out .hl{opacity:0!important;transition:opacity .5s}
-#intro .bar{position:absolute;left:0;right:0;height:13vh;background:#000;z-index:3;transition:transform 1.2s cubic-bezier(.7,0,.2,1)}
-#intro .bt{top:0;box-shadow:0 0 40px 10px #000}#intro .bb{bottom:0;box-shadow:0 0 40px 10px #000}
-#intro.out .bt{transform:translateY(-100%)}#intro.out .bb{transform:translateY(100%)}
-#intro .vg{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.75) 100%);z-index:2;pointer-events:none}
-#intro .dust{position:absolute;width:3px;height:3px;border-radius:50%;background:#ffe2a0;box-shadow:0 0 8px 2px rgba(255,210,120,.7);opacity:0;animation:du 6s linear infinite;animation-delay:var(--d);left:var(--x);bottom:-10px}
-@keyframes du{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-105vh) translateX(30px);opacity:0}}
-#intro .hl{position:absolute;left:50%;top:50%;height:2px;width:0;transform:translate(-50%,-50%);background:linear-gradient(90deg,transparent,rgba(255,220,150,.9),transparent);box-shadow:0 0 30px 6px rgba(255,190,90,.45);animation:hl 3.4s cubic-bezier(.3,.6,.2,1) .4s forwards;opacity:.9}
-@keyframes hl{0%{width:0;opacity:0}30%{opacity:1}100%{width:130vw;opacity:.0}}
-#intro .title{position:relative;z-index:1;font-family:'Cinzel','Trajan Pro','Times New Roman',serif;font-weight:700;font-size:clamp(3.2rem,17vw,8.5rem);letter-spacing:.2em;padding-left:.2em;line-height:1.2;animation:push 6s ease-out forwards}
-@keyframes push{from{transform:scale(.94)}to{transform:scale(1.06)}}
-#intro .title span{display:block;white-space:nowrap}
-#intro .base{color:#4a3322;text-shadow:0 0 1px rgba(255,200,120,.2);animation:bs 1.2s ease .2s both}
-@keyframes bs{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
-#intro .gold,#intro .shine{position:absolute;inset:0;padding-left:.2em;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
-#intro .gold{background-image:linear-gradient(180deg,#fff6d6 0%,#f4c968 40%,#b97a1f 60%,#f7d98a 100%);opacity:0;filter:drop-shadow(0 4px 24px rgba(255,170,70,.45));animation:gd 1.4s ease 2.6s forwards}
-@keyframes gd{to{opacity:1}}
-#intro .shine{background-image:linear-gradient(105deg,transparent 40%,rgba(255,250,225,1) 50%,transparent 60%);background-size:300% 100%;background-repeat:no-repeat;background-position:130% 0;animation:sw 2.4s cubic-bezier(.45,.1,.3,1) .8s forwards}
-@keyframes sw{to{background-position:-30% 0}}
-#intro .sub{position:relative;z-index:1;margin-top:14px;font-family:'Cinzel','Times New Roman',serif;font-size:.8rem;color:rgba(255,226,170,.9);letter-spacing:.8em;padding-left:.8em;opacity:0;animation:sb 1.4s ease 3.4s forwards}
-@keyframes sb{to{opacity:1;letter-spacing:.5em}}
 body.introlock{overflow:hidden}
 
+/* ===== opening intro ===== */
+#intro{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:22px;direction:ltr;cursor:pointer;background:radial-gradient(ellipse 80% 60% at 50% 45%,#5c1228 0%,#3d0b1a 55%,#1a0409 100%);transition:opacity .6s ease,visibility .6s}
+#intro.out{opacity:0;visibility:hidden;pointer-events:none}
+#intro .nm{font-family:'Cinzel','Times New Roman',serif;font-weight:700;font-size:clamp(1.7rem,9vw,3.6rem);letter-spacing:.22em;padding-left:.22em;color:#fff;white-space:nowrap;opacity:0;transform:scale(.94);filter:blur(6px);animation:inm 1.3s cubic-bezier(.2,.8,.2,1) .2s forwards}
+#intro .ln{width:min(56vw,220px);height:2px;border-radius:2px;background:rgba(255,255,255,.18);overflow:hidden}
+#intro .ln i{display:block;height:100%;width:0;border-radius:2px;background:#fff;animation:inl 3.4s cubic-bezier(.4,.1,.2,1) .3s forwards}
+@keyframes inm{to{opacity:1;transform:none;filter:none}}
+@keyframes inl{to{width:100%}}
+@media (prefers-reduced-motion:reduce){#intro .nm,#intro .ln i{animation-duration:.01s;animation-delay:0s}}
 
-#intro .rays{position:absolute;left:50%;top:50%;width:150vmax;height:150vmax;margin:-75vmax 0 0 -75vmax;opacity:0;background:repeating-conic-gradient(from 0deg,rgba(255,205,130,.14) 0 3deg,transparent 3deg 15deg);-webkit-mask:radial-gradient(circle,#000 0,transparent 42%);mask:radial-gradient(circle,#000 0,transparent 42%);animation:spn 40s linear infinite,ryi 2.2s ease .3s forwards}
-@keyframes spn{to{transform:rotate(360deg)}}
-@keyframes ryi{to{opacity:1}}
-#intro .orn{position:relative;z-index:1;display:flex;align-items:center;gap:10px;margin-top:4px;opacity:0;animation:sb 1s ease 3s forwards}
-#intro .orn i{display:block;height:1px;width:min(22vw,90px);background:linear-gradient(90deg,transparent,#f2c06a)}
-#intro .orn i:last-child{transform:scaleX(-1)}
-#intro .orn b{width:7px;height:7px;background:#ffd98a;transform:rotate(45deg);box-shadow:0 0 12px 3px rgba(255,200,110,.7)}
-#intro.out .rays,#intro.out .orn{opacity:0!important;transition:opacity .5s}
 
-#intro{background:#1a0409!important}
-#intro.out{transition:opacity .9s ease .35s!important}
-@media (prefers-reduced-motion:reduce){#intro *{animation-duration:.01s!important;animation-delay:0s!important}}
+/* ===== Kurdish / Arabic typography: max 2 lines, elegant fonts, smaller on mobile ===== */
+html[lang=ckb] body,html[lang=ar] body{line-height:1.85}
+html[lang=ckb] h1,html[lang=ckb] h2,html[lang=ckb] h3,html[lang=ckb] .btn,html[lang=ckb] .menu a,
+html[lang=ar] h1,html[lang=ar] h2,html[lang=ar] h3,html[lang=ar] .btn,html[lang=ar] .menu a{font-family:'Cairo','Noto Kufi Arabic','Vazirmatn',sans-serif;font-weight:800}
+html[lang=ckb] .sub,html[lang=ckb] .rq p,html[lang=ckb] .step p,html[lang=ckb] .about,html[lang=ckb] .hero p,
+html[lang=ar] .sub,html[lang=ar] .rq p,html[lang=ar] .step p,html[lang=ar] .about,html[lang=ar] .hero p{font-weight:500}
+.hero h1 span,.hero h1 em{display:block}
+.sub{max-width:62ch}
+.about{max-width:none}
+.hero p{max-width:64ch}
+@media(min-width:761px){.hero h1{max-width:none}.hero p{max-width:64ch}.step p{max-width:30ch}}
+@media(max-width:760px){
+ .hero h1{font-size:1.12rem;line-height:1.55}
+ html[lang=ckb] .hero h1,html[lang=ar] .hero h1{font-size:1.05rem;line-height:1.7}
+ .h2{font-size:1.1rem}
+ html[lang=ckb] .h2,html[lang=ar] .h2{font-size:1.05rem}
+ .sub{font-size:.9rem;max-width:none;padding:0 2px}
+ .rq h2{font-size:1.05rem}
+ .rq p{font-size:.86rem}
+ .cc h3{font-size:.86rem}
+ .cc .fl{width:38px;height:38px}
+ .step h3{font-size:.76rem}
+ footer h4{font-size:.92rem}
+ footer a,.adr,.about{font-size:.84rem}
+ .fb{font-size:.78rem}
+ .btn{font-size:.86rem;min-height:40px}
+}
+
+/* ===== Mobile performance: no blur, no heavy animation ===== */
+@media(max-width:760px){
+ .pics .slot,.rq input,.rq select{-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+ /* شووشەی ڕاستەقینە: تەنها لەسەر چەند توخمی سەرەکی */
+ header,.lang{-webkit-backdrop-filter:blur(12px) saturate(1.6)!important;backdrop-filter:blur(12px) saturate(1.6)!important}
+ .menu.open{-webkit-backdrop-filter:blur(20px) saturate(1.5)!important;backdrop-filter:blur(20px) saturate(1.5)!important;background:rgba(42,8,19,.72)!important}
+ .cc,.steps,.rq,footer .wrap{-webkit-backdrop-filter:blur(16px) saturate(1.7)!important;backdrop-filter:blur(16px) saturate(1.7)!important}
+ #aur b{display:block!important;animation:none!important}
+ #aur::after{display:none}
+ /* ---- شووشەی ساختە (بەبێ blur، سووک) ---- */
+ header{background:linear-gradient(180deg,rgba(110,22,50,.55),rgba(58,10,26,.45))!important;border-bottom:1px solid rgba(255,255,255,.2)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.22),0 8px 22px -14px rgba(0,0,0,.7)!important}
+ .menu.open{background:linear-gradient(180deg,#4a0e22,#2a0813)!important}
+ .lang{background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.06))!important;border:1px solid rgba(255,255,255,.3)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.4)!important}
+ .burger{background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.05));border-color:rgba(255,255,255,.3);box-shadow:inset 0 1px 0 rgba(255,255,255,.4)}
+ .cc,.steps,.rq,footer .wrap,.pics .slot{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.22) 0%,rgba(255,255,255,.05) 50%,rgba(255,255,255,.12) 100%)!important;border:1px solid rgba(255,255,255,.34)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.45),inset 0 -1px 0 rgba(255,255,255,.08),0 14px 26px -16px rgba(0,0,0,.65)!important}
+ .steps,.rq,footer .wrap{border-radius:22px}
+ .cc{border-radius:16px}
+ .cc::after{display:block!important;transform:none!important;transition:none!important;background:linear-gradient(160deg,rgba(255,255,255,.25),transparent 42%)!important;border-radius:inherit}
+ .rq input,.rq select{background:linear-gradient(145deg,rgba(255,255,255,.2),rgba(255,255,255,.08))!important;border:1px solid rgba(255,255,255,.34)!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.3)!important}
+ .rq .btn,.m-cta{background:linear-gradient(145deg,rgba(255,255,255,.95),rgba(255,214,225,.8))!important;color:#6e1428!important;border:1px solid #fff!important;box-shadow:inset 0 1px 0 #fff,0 10px 22px -12px rgba(255,120,160,.8)!important}
+ .step .n{background:linear-gradient(160deg,#fff,#ffd5df)!important;box-shadow:inset 0 1px 0 #fff,0 0 0 4px rgba(255,255,255,.14)!important}
+ #aur i{animation:none!important;will-change:auto!important}
+ #aur .a2,#aur .a3{display:block!important}
+ #aur .a1{background:radial-gradient(circle,rgba(255,105,145,.42),transparent 62%)!important}
+ #aur .a2{background:radial-gradient(circle,rgba(150,60,210,.3),transparent 62%)!important;width:90vw!important;height:90vw!important;top:30%!important;left:-40vw!important}
+ #aur .a3{background:radial-gradient(circle,rgba(255,150,110,.24),transparent 62%)!important;width:90vw!important;height:90vw!important;bottom:-20vw!important;right:-30vw!important}
+ #aur .a1{width:100vw!important;height:100vw!important;top:-35vw!important;right:-30vw!important}
+ .hero h1,.hero h1 em{filter:none!important;animation:none!important;text-shadow:none!important}
+ .hero h1 em{-webkit-text-fill-color:#fff;color:#fff;background:none}
+ .h2{background:none!important;-webkit-text-fill-color:#fff;color:#fff}
+ .btn::after{display:none!important}
+ .tools .btn{animation:none!important}
+ .rv.in{animation-duration:.5s}
+}
+
 </style>
 </head>
 <body>
 <div id="aur"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a4"></i><b style="--x:8%;--y:18%;--s:90px;--d:-2s"></b><b style="--x:80%;--y:32%;--s:150px;--d:-5s"></b><b style="--x:14%;--y:62%;--s:60px;--d:-8s"></b><b style="--x:70%;--y:78%;--s:110px;--d:-3s"></b><b style="--x:46%;--y:45%;--s:70px;--d:-10s"></b></div>
-<div id="intro" aria-hidden="true">
-<div class="title"><span class="base">HELLO</span><span class="gold">HELLO</span><span class="shine">HELLO</span></div>
-<div class="sub">HAWRE AUTO</div></div>
+<div id="intro" aria-hidden="true"><div class="nm">HAWRE-AUTO</div><div class="ln"><i></i></div></div>
 <script>(function(){var i=document.getElementById('intro'),b=document.body,d=false;b.classList.add('introlock');
-function go(){if(d)return;d=true;i.classList.add('out');b.classList.remove('introlock');setTimeout(function(){i.remove()},2400)}
-i.addEventListener('click',go);setTimeout(go,5000)})();</script>
+function go(){if(d)return;d=true;i.classList.add('out');b.classList.remove('introlock');setTimeout(function(){i.remove()},700)}
+i.addEventListener('click',go);i.addEventListener('touchstart',go,{passive:true});setTimeout(go,4000)})();</script>
 
 
 <header><div class="wrap bar">
@@ -484,60 +515,58 @@ ckb:{
  title:"HAWRE AUTO — هاوردەکردنی سەیارە لە ئەمریکا، کەنەدا و ئیماراتەوە",
  nav_cars:"وڵاتەکانی هێنان", nav_process:"پرۆسەی هێنان", nav_contact:"پەیوەندی", nav_cta:"داواکردنی سەیارە",
  h1a:"سەیارەکەت لە ئەمریکا، کەنەدا و ئیماراتەوە،", h1b:"بۆ شوێنی مەبەست ",
- hero_p:"لە ئەمریکا، کەنەدا و ئیماراتەوە سەیارە هەڵدەبژێرین، پشکنینی تەواو دەکەین و دەیگەیەنین بۆ کوردستان.",
- cn_h:"هێنان لە سێ وڵاتەوە", cn_sub:"وڵاتی هێنان هەڵبژێرە، گەڕان و پشکنین و گواستنەوە و گومرگ لەلایەن ئێمەوە ئەنجام دەدرێت.", cn1a:"ئەمریکا", cn2a:"کەنەدا", cn3a:"ئیمارات",
+ hero_p:"سەیارە هەڵدەبژێرین، پشکنینی تەواو دەکەین و دەیگەیەنین بۆ کوردستان.",
+ cn_h:"هێنان لە سێ وڵاتەوە", cn_sub:"وڵات هەڵبژێرە، گەڕان و پشکنین و گومرگ لەلایەن ئێمەوە.", cn1a:"ئەمریکا", cn2a:"کەنەدا", cn3a:"ئیمارات",
  p_h:"لە هەڵبژاردن هەتا ڕادەستکردن", p_sub:"مارکە و مۆدێلت پێ بڵێ، ئێمە دەیدۆزینەوە و دەیهێنین.",
  p1b:"هەڵبژاردن", p1c:"مارکە و مۆدێلی دڵخوازت پێمان بڵێ.",
  p2b:"پشکنین و نرخ", p2c:"پشکنین و نرخی کۆتایی، بەبێ خەرجی شاراوە.",
  p3b:"ڕێگای گەیشتن", p3c:"بارکردن، گومرگ و گەیاندن بۆ کوردستان.",
  p4b:"ڕادەستکردن", p4c:"سەیارەکە بە بەڵگە و گەرەنتییەوە ڕادەست دەکرێت.",
- ft_about:"هاوردەکردنی سەیارە لە ئەمریکا، کەنەدا و ئیماراتەوە بۆ کوردستان — بە متمانە و ڕوونی.",
+ ft_about:"هاوردەکردنی سەیارە بۆ کوردستان، بە متمانە و ڕوونی.",
  addr:"سلێمانی، کوردستان", rights:"© ٢٠٢٦ HAWRE AUTO. هەموو مافەکان پارێزراون.",
  loc_btn:"کردنەوە لە نەخشە",
- f_h:"داواکردنی سەیارە", f_p:"زانیارییەکان پڕ بکەرەوە، ڕاستەوخۆ دەچیتە واتسئاپ بە نامەیەکی ئامادەکراو.", ph_n:"ناوت", ph_b:"مارکە (وەک Toyota)", ph_m:"مۆدێل (وەک Camry 2022)", f_c:"وڵاتی هێنان", f_send:"ناردن بە واتسئاپ",
+ f_h:"داواکردنی سەیارە", f_p:"زانیارییەکان پڕ بکەرەوە، ڕاستەوخۆ دەچیتە واتسئاپ.", ph_n:"ناوت", ph_b:"مارکە (وەک Toyota)", ph_m:"مۆدێل (وەک Camry 2022)", f_c:"وڵاتی هێنان", f_send:"ناردن بە واتسئاپ",
  wa_msg:"سڵاو، ناوم: {n}\nدەمەوێت ئەم سەیارەیەم بۆ بهێنن:\nمارکە: {b}\nمۆدێل: {m}\nوڵاتی هێنان: {c}"
 },
 ar:{
  title:"HAWRE AUTO — استيراد السيارات من أمريكا وكندا والإمارات",
  nav_cars:"دول الاستيراد", nav_process:"آلية الاستيراد", nav_contact:"اتصل بنا", nav_cta:"اطلب سيارة",
  h1a:"سيارتك من أمريكا وكندا والإمارات،", h1b:"إلى كراجك",
- hero_p:"نختار السيارة من أمريكا وكندا والإمارات، نفحصها بالكامل ونوصلها إلى كردستان.",
- cn_h:"نستورد لك من ثلاث دول", cn_sub:"اختر بلد الاستيراد، ونتولى نحن البحث والفحص والشحن والتخليص الجمركي.", cn1a:"أمريكا", cn2a:"كندا", cn3a:"الإمارات",
+ hero_p:"نختار السيارة، نفحصها بالكامل ونوصلها إلى كردستان.",
+ cn_h:"نستورد لك من ثلاث دول", cn_sub:"اختر البلد، ونتولى البحث والفحص والشحن والتخليص.", cn1a:"أمريكا", cn2a:"كندا", cn3a:"الإمارات",
  p_h:"من الاختيار حتى التسليم", p_sub:"أخبرنا بالماركة والموديل ونحن نجدها ونوصلها.",
  p1b:"الاختيار", p1c:"أخبرنا بالماركة والموديل المطلوبين.",
  p2b:"الفحص والسعر", p2c:"فحص كامل وسعر نهائي دون تكاليف مخفية.",
  p3b:"رحلة الوصول", p3c:"شحن وتخليص جمركي وتوصيل إلى كردستان.",
  p4b:"التسليم", p4c:"تُسلَّم السيارة مع الوثائق والضمان.",
- ft_about:"استيراد السيارات من أمريكا وكندا والإمارات إلى كردستان — بثقة ووضوح.",
+ ft_about:"استيراد السيارات إلى كردستان، بثقة ووضوح.",
  addr:"السليمانية، كردستان", rights:"© ٢٠٢٦ HAWRE AUTO. جميع الحقوق محفوظة.",
  loc_btn:"افتح في الخريطة",
- f_h:"اطلب سيارتك", f_p:"املأ البيانات وستنتقل مباشرة إلى واتساب برسالة جاهزة.", ph_n:"اسمك", ph_b:"الماركة (مثل Toyota)", ph_m:"الموديل (مثل Camry 2022)", f_c:"بلد الاستيراد", f_send:"إرسال عبر واتساب",
+ f_h:"اطلب سيارتك", f_p:"املأ البيانات وستنتقل مباشرة إلى واتساب.", ph_n:"اسمك", ph_b:"الماركة (مثل Toyota)", ph_m:"الموديل (مثل Camry 2022)", f_c:"بلد الاستيراد", f_send:"إرسال عبر واتساب",
  wa_msg:"مرحباً، اسمي: {n}\nأريد استيراد هذه السيارة:\nالماركة: {b}\nالموديل: {m}\nبلد الاستيراد: {c}"
 },
 en:{
  title:"HAWRE AUTO — Car import from the USA, Canada and the UAE",
  nav_cars:"Import countries", nav_process:"How it works", nav_contact:"Contact", nav_cta:"Request a car",
  h1a:"Your car, from the USA, Canada and the UAE,", h1b:"to your own garage",
- hero_p:"We select cars from the USA, Canada and the UAE, inspect them thoroughly and deliver them to Kurdistan.",
- cn_h:"We import from three countries", cn_sub:"Choose the country and we handle the search, inspection, shipping and customs.", cn1a:"USA", cn2a:"Canada", cn3a:"UAE",
+ hero_p:"We select cars, inspect them thoroughly and deliver them to Kurdistan.",
+ cn_h:"We import from three countries", cn_sub:"Choose the country — we handle search, inspection, shipping and customs.", cn1a:"USA", cn2a:"Canada", cn3a:"UAE",
  p_h:"From selection to delivery", p_sub:"Tell us the make and model — we find it and bring it.",
  p1b:"Selection", p1c:"Tell us the make and model you want.",
  p2b:"Inspection & price", p2c:"Full inspection and a final price, no hidden costs.",
  p3b:"On the way", p3c:"Shipping, customs and delivery to Kurdistan.",
  p4b:"Handover", p4c:"Handed over with documents and warranty.",
- ft_about:"Importing cars from the USA, Canada and the UAE to Kurdistan — with trust and transparency.",
+ ft_about:"Importing cars to Kurdistan, with trust and transparency.",
  addr:"Sulaymaniyah, Kurdistan", rights:"© 2026 HAWRE AUTO. All rights reserved.",
  loc_btn:"Open in Maps",
- f_h:"Request your car", f_p:"Fill in the details and you'll go straight to WhatsApp with a ready-made message.", ph_n:"Your name", ph_b:"Make (e.g. Toyota)", ph_m:"Model (e.g. Camry 2022)", f_c:"Import country", f_send:"Send on WhatsApp",
+ f_h:"Request your car", f_p:"Fill in the details and go straight to WhatsApp.", ph_n:"Your name", ph_b:"Make (e.g. Toyota)", ph_m:"Model (e.g. Camry 2022)", f_c:"Import country", f_send:"Send on WhatsApp",
  wa_msg:"Hello, my name is {n}.\nI'd like you to import this car for me:\nMake: {b}\nModel: {m}\nCountry: {c}"
 }};
 
 /* ============ فەرمانەکانی ماڵپەڕ (دەست لێ مەدە) ============ */
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let lang='en';
-try{lang=localStorage.getItem('hawre-lang2')||'en'}catch(e){}
-if(!I18N[lang])lang='en';
+let lang='en'; /* هەمیشە بە ئینگلیزی دەکرێتەوە */
 const t=k=>I18N[lang][k]??I18N.en[k]??k;
 
 const ICON='<svg viewBox="0 0 48 48"><rect x="6" y="9" width="36" height="30" rx="3"/><circle cx="17" cy="20" r="3.5"/><path d="m6 34 11-10 8 7 6-5 11 9"/></svg>';
@@ -572,7 +601,7 @@ $('pics').innerHTML=[0,1,2].map(i=>`<div>${slot({image:(MEDIA.process||[])[i]},'
 
 /* ---- زمان ---- */
 function setLang(l){
-  lang=l;try{localStorage.setItem('hawre-lang2',l)}catch(e){}
+  lang=l;
   const h=document.documentElement;h.lang=l;h.dir=l==='en'?'ltr':'rtl';
   document.title=t('title');
   document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
@@ -623,6 +652,7 @@ document.querySelectorAll('.cc').forEach(a=>a.addEventListener('click',()=>{$('r
 
 /* ---- تۆڕی خاڵ و هێڵ (سووککراو بۆ مۆبایل — هەمیشە دەجووڵێت) ---- */
 (()=>{
+ return; /* تۆڕی خاڵەکان ڕاگیراوە (شاراوە بوو و تەنها پڕۆسێسەری دەخوارد) */
  const mobile=matchMedia('(max-width:760px)').matches||/Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
  const c=document.createElement('canvas');c.className='gnet';c.setAttribute('aria-hidden','true');
  document.body.insertBefore(c,document.body.firstChild);
