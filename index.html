@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="rtl" lang="ckb">
+<html dir="ltr" lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -12,7 +12,7 @@
 <link rel="icon" id="favicon" href="data:,">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&family=Noto+Kufi+Arabic:wght@700;800&family=Outfit:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;700;800&family=Noto+Kufi+Arabic:wght@700;800&family=Outfit:wght@600;700&family=Cinzel:wght@500;700&display=swap" rel="stylesheet">
 <style>
 :root{--w:1040px;--ink:#1a0a0e;--wine:#7a1530;--wine2:#6e1428}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -247,9 +247,47 @@ html[dir=rtl] footer a[href^="tel"],html[dir=rtl] footer a[href^="mailto"]{text-
  .rv{transition-duration:.45s}
 }
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}.gnet{animation:none!important}}
+
+#intro{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;flex-direction:column;overflow:hidden;direction:ltr;cursor:pointer;
+background:radial-gradient(ellipse 70% 55% at 50% 50%,#3d0b17 0%,#1a0409 55%,#050102 100%);transition:opacity 1s ease .3s,transform 1.6s cubic-bezier(.6,0,.2,1),filter 1s}
+#intro.out{opacity:0;pointer-events:none;transition:opacity 1.1s ease .9s}
+#intro .fl{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;background:radial-gradient(circle at 50% 50%,rgba(255,236,190,.95) 0%,rgba(255,190,90,.55) 22%,transparent 60%)}
+#intro.out .fl{animation:fls 1.5s ease-out forwards}
+@keyframes fls{0%{opacity:0;transform:scale(.4)}25%{opacity:1}100%{opacity:0;transform:scale(2.2)}}
+#intro.out .title{transition:letter-spacing 1.4s cubic-bezier(.3,.6,.2,1),opacity 1s ease .15s,filter 1s ease;letter-spacing:.7em;opacity:0;filter:blur(8px) brightness(2.2)}
+#intro.out .sub,#intro.out .dust,#intro.out .hl{opacity:0!important;transition:opacity .5s}
+#intro .bar{position:absolute;left:0;right:0;height:13vh;background:#000;z-index:3;transition:transform 1.2s cubic-bezier(.7,0,.2,1)}
+#intro .bt{top:0;box-shadow:0 0 40px 10px #000}#intro .bb{bottom:0;box-shadow:0 0 40px 10px #000}
+#intro.out .bt{transform:translateY(-100%)}#intro.out .bb{transform:translateY(100%)}
+#intro .vg{position:absolute;inset:0;background:radial-gradient(ellipse at center,transparent 45%,rgba(0,0,0,.75) 100%);z-index:2;pointer-events:none}
+#intro .dust{position:absolute;width:3px;height:3px;border-radius:50%;background:#ffe2a0;box-shadow:0 0 8px 2px rgba(255,210,120,.7);opacity:0;animation:du 6s linear infinite;animation-delay:var(--d);left:var(--x);bottom:-10px}
+@keyframes du{0%{transform:translateY(0);opacity:0}15%{opacity:.9}100%{transform:translateY(-105vh) translateX(30px);opacity:0}}
+#intro .hl{position:absolute;left:50%;top:50%;height:2px;width:0;transform:translate(-50%,-50%);background:linear-gradient(90deg,transparent,rgba(255,220,150,.9),transparent);box-shadow:0 0 30px 6px rgba(255,190,90,.45);animation:hl 3.4s cubic-bezier(.3,.6,.2,1) .4s forwards;opacity:.9}
+@keyframes hl{0%{width:0;opacity:0}30%{opacity:1}100%{width:130vw;opacity:.0}}
+#intro .title{position:relative;z-index:1;font-family:'Cinzel','Trajan Pro','Times New Roman',serif;font-weight:700;font-size:clamp(3.2rem,17vw,8.5rem);letter-spacing:.2em;padding-left:.2em;line-height:1.2;animation:push 6s ease-out forwards}
+@keyframes push{from{transform:scale(.94)}to{transform:scale(1.06)}}
+#intro .title span{display:block;white-space:nowrap}
+#intro .base{color:#4a3322;text-shadow:0 0 1px rgba(255,200,120,.2);animation:bs 1.2s ease .2s both}
+@keyframes bs{from{opacity:0;filter:blur(8px)}to{opacity:1;filter:blur(0)}}
+#intro .gold,#intro .shine{position:absolute;inset:0;padding-left:.2em;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:transparent}
+#intro .gold{background-image:linear-gradient(180deg,#fff6d6 0%,#f4c968 40%,#b97a1f 60%,#f7d98a 100%);opacity:0;filter:drop-shadow(0 4px 24px rgba(255,170,70,.45));animation:gd 1.4s ease 2.6s forwards}
+@keyframes gd{to{opacity:1}}
+#intro .shine{background-image:linear-gradient(105deg,transparent 40%,rgba(255,250,225,1) 50%,transparent 60%);background-size:300% 100%;background-repeat:no-repeat;background-position:130% 0;animation:sw 2.4s cubic-bezier(.45,.1,.3,1) .8s forwards}
+@keyframes sw{to{background-position:-30% 0}}
+#intro .sub{position:relative;z-index:1;margin-top:14px;font-family:'Cinzel','Times New Roman',serif;font-size:.8rem;color:rgba(255,226,170,.9);letter-spacing:.8em;padding-left:.8em;opacity:0;animation:sb 1.4s ease 3.4s forwards}
+@keyframes sb{to{opacity:1;letter-spacing:.5em}}
+body.introlock{overflow:hidden}
+@media (prefers-reduced-motion:reduce){#intro *{animation-duration:.01s!important;animation-delay:0s!important}}
 </style>
 </head>
 <body>
+<div id="intro" aria-hidden="true"><i class="bar bt"></i><i class="bar bb"></i><i class="vg"></i><i class="dust" style="--x:8%;--d:0.0s"></i><i class="dust" style="--x:22%;--d:1.6s"></i><i class="dust" style="--x:35%;--d:3.1s"></i><i class="dust" style="--x:48%;--d:0.7s"></i><i class="dust" style="--x:60%;--d:2.4s"></i><i class="dust" style="--x:72%;--d:4.2s"></i><i class="dust" style="--x:85%;--d:1.1s"></i><i class="dust" style="--x:93%;--d:3.6s"></i><i class="hl"></i><i class="fl"></i>
+<div class="title"><span class="base">HELLO</span><span class="gold">HELLO</span><span class="shine">HELLO</span></div>
+<div class="sub">HAWRE AUTO</div></div>
+<script>(function(){var i=document.getElementById('intro'),b=document.body,d=false;b.classList.add('introlock');
+function go(){if(d)return;d=true;i.classList.add('out');b.classList.remove('introlock');setTimeout(function(){i.remove()},2400)}
+i.addEventListener('click',go);setTimeout(go,5400)})();</script>
+
 
 <header><div class="wrap bar">
   <a class="logo" href="#top" id="site-logo"><span class="ltr">HAWRE AUTO</span></a>
@@ -418,10 +456,10 @@ en:{
 /* ============ فەرمانەکانی ماڵپەڕ (دەست لێ مەدە) ============ */
 const $=id=>document.getElementById(id);
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-let lang='ckb';
-try{lang=localStorage.getItem('hawre-lang')||'ckb'}catch(e){}
-if(!I18N[lang])lang='ckb';
-const t=k=>I18N[lang][k]??I18N.ckb[k]??k;
+let lang='en';
+try{lang=localStorage.getItem('hawre-lang2')||'en'}catch(e){}
+if(!I18N[lang])lang='en';
+const t=k=>I18N[lang][k]??I18N.en[k]??k;
 
 const ICON='<svg viewBox="0 0 48 48"><rect x="6" y="9" width="36" height="30" rx="3"/><circle cx="17" cy="20" r="3.5"/><path d="m6 34 11-10 8 7 6-5 11 9"/></svg>';
 const ytId=u=>{const m=String(u).match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);return m?m[1]:null};
@@ -455,7 +493,7 @@ $('pics').innerHTML=[0,1,2].map(i=>`<div>${slot({image:(MEDIA.process||[])[i]},'
 
 /* ---- زمان ---- */
 function setLang(l){
-  lang=l;try{localStorage.setItem('hawre-lang',l)}catch(e){}
+  lang=l;try{localStorage.setItem('hawre-lang2',l)}catch(e){}
   const h=document.documentElement;h.lang=l;h.dir=l==='en'?'ltr':'rtl';
   document.title=t('title');
   document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
