@@ -389,10 +389,16 @@ html[lang=ar] .sub,html[lang=ar] .rq p,html[lang=ar] .step p,html[lang=ar] .abou
  .rv.in{animation-duration:.5s}
 }
 
+
+/* ===== no background: plain solid colour, no gradients/glows/bubbles ===== */
+html,body{background:#3d0b1a!important}
+html::before,html::after,body::before,body::after{display:none!important}
+#aur,.gnet{display:none!important}
+#intro{background:#3d0b1a!important}
 </style>
 </head>
 <body>
-<div id="aur"><i class="a1"></i><i class="a2"></i><i class="a3"></i><i class="a4"></i><b style="--x:8%;--y:18%;--s:90px;--d:-2s"></b><b style="--x:80%;--y:32%;--s:150px;--d:-5s"></b><b style="--x:14%;--y:62%;--s:60px;--d:-8s"></b><b style="--x:70%;--y:78%;--s:110px;--d:-3s"></b><b style="--x:46%;--y:45%;--s:70px;--d:-10s"></b></div>
+
 <div id="intro" aria-hidden="true"><div class="nm">HAWRE-AUTO</div><div class="ln"><i></i></div></div>
 <script>(function(){var i=document.getElementById('intro'),b=document.body,d=false;b.classList.add('introlock');
 function go(){if(d)return;d=true;i.classList.add('out');b.classList.remove('introlock');setTimeout(function(){i.remove()},700)}
