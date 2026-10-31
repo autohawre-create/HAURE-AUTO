@@ -395,6 +395,55 @@ html,body{background:#3d0b1a!important}
 html::before,html::after,body::before,body::after{display:none!important}
 #aur,.gnet{display:none!important}
 #intro{background:#3d0b1a!important}
+
+/* ===== sections in two close tones + hairline dividers, no cards ===== */
+html,body{background:#3d0b1a!important}
+#countries,.cta{background:#3d0b1a}
+#process{background:#4b1124}
+footer{background:#2f0914}
+#countries,#process,.cta,footer{border-top:1px solid rgba(255,255,255,.12)}
+footer::before{display:none!important}
+.cc,.steps,.rq,footer .wrap,.pics .slot,.slot{background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important;border-radius:0}
+.pics .slot{border-radius:8px}
+.cc::after{display:none!important}
+.cc{border-radius:0}
+.cc+.cc{border-inline-start:1px solid rgba(255,255,255,.14)!important}
+.step+.step{border-inline-start:1px solid rgba(255,255,255,.14)}
+.rq{max-width:var(--w)}
+.rq input,.rq select{background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.35)!important;border-radius:0!important}
+.rq input:focus,.rq select:focus{border-bottom-color:#fff!important;box-shadow:none!important}
+.fb{border-top:1px solid rgba(255,255,255,.12)}
+/* ---- header: transparent on top, solid on scroll ---- */
+header,header.sc,header:not(.sc){background-image:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;transition:background-color .3s,border-color .3s!important}
+header:not(.sc){background-color:transparent!important;border-bottom:1px solid transparent!important}
+header.sc,header.mo{background-color:#3d0b1a!important;border-bottom:1px solid rgba(255,255,255,.12)!important}
+header::after{display:none!important}
+header::before{content:'';position:absolute;inset:0 0 -26px;z-index:-1;pointer-events:none;background:linear-gradient(180deg,rgba(18,3,7,.72),transparent);transition:opacity .3s}
+header.sc::before,header.mo::before{opacity:0}
+.hero{padding-top:0!important}
+.menu,.menu.open{background:#3d0b1a!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+.menu a.act{border-bottom-color:#fff}
+.menu a::after{background:#fff!important}
+.menu a.act::after{transform:scaleX(1)}
+.burger{background:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important;box-shadow:none!important;line-height:1}
+/* ---- language dropdown ---- */
+.lang{position:relative;background:none!important;border:0!important;padding:0!important;box-shadow:none!important;-webkit-backdrop-filter:none!important;backdrop-filter:none!important}
+#lang .lb{display:flex;align-items:center;gap:5px;min-height:30px;padding:0 9px;border:1px solid rgba(255,255,255,.35);border-radius:999px;background:none;color:#fff;font:700 .7rem/1 'Outfit','Vazirmatn',sans-serif;cursor:pointer}
+#lang .lb svg{width:15px;height:15px;flex:none}
+#lang .lb .cv{font-size:.55rem;opacity:.8;transition:transform .25s}
+#lang.open .lb .cv{transform:rotate(180deg)}
+#lang .ll{display:none;position:absolute;top:calc(100% + 8px);inset-inline-end:0;min-width:116px;flex-direction:column;padding:4px;border:1px solid rgba(255,255,255,.2);border-radius:12px;background:#3d0b1a;box-shadow:0 16px 32px -14px rgba(0,0,0,.7)}
+#lang.open .ll{display:flex}
+#lang .ll button{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;min-height:36px;padding:0 12px;border:0;border-radius:8px;background:none!important;color:#fff!important;font-size:.8rem;font-weight:700;text-align:start;cursor:pointer}
+#lang .ll button:hover{background:rgba(255,255,255,.1)!important}
+#lang .ll button.on::after{content:'\2713';font-size:.8rem}
+/* ---- logo icon ---- */
+.logo-ic{width:24px;height:24px;flex:none}
+.logo{gap:8px}
+/* ---- hero: slow zoom ---- */
+@keyframes hz{from{transform:scale(1)}to{transform:scale(1.06)}}
+.hero .slot>img:not(.hbg){animation:hz 20s ease-in-out infinite alternate;will-change:transform}
+@media(prefers-reduced-motion:reduce){.hero .slot>img:not(.hbg){animation:none}}
 </style>
 </head>
 <body>
@@ -414,9 +463,12 @@ i.addEventListener('click',go);i.addEventListener('touchstart',go,{passive:true}
     <a class="m-cta" href="#request" data-i="nav_cta"></a>
   </nav>
   <div class="lang" id="lang">
-    <button data-l="ckb">کوردی</button>
-    <button data-l="ar">عربي</button>
-    <button data-l="en">EN</button>
+    <button class="lb" id="lang-btn" type="button" aria-label="language" aria-haspopup="true" aria-expanded="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 4 5.6 4 9s-1.4 6.4-4 9c-2.6-2.6-4-5.6-4-9s1.4-6.4 4-9z"/></svg><span id="lang-cur">EN</span><span class="cv" aria-hidden="true">&#9662;</span></button>
+    <div class="ll" id="lang-list">
+      <button type="button" data-l="ckb">کوردی</button>
+      <button type="button" data-l="ar">عربي</button>
+      <button type="button" data-l="en">English</button>
+    </div>
   </div>
   <div class="tools"><a class="btn" href="#request" data-i="nav_cta"></a></div>
   <button class="burger" id="burger" aria-label="menu">☰</button>
@@ -590,7 +642,8 @@ const slot=(m,key,size,eager)=>{
   else if(m.image)top=`<img src="${esc(m.image)}" alt="HAWRE AUTO" decoding="async" ${eager?'fetchpriority="high"':'loading="lazy"'} onerror="this.remove()">`;
   return `<div class="slot"><div class="ph">${ICON}<b>${esc(key)}</b><small>${size}</small></div>${top}</div>`;
 };
-const logoHtml=()=>(MEDIA.logo?`<img src="${esc(MEDIA.logo)}" alt="" class="logo-img" onerror="this.remove()">`:'')+'<span class="logo-txt ltr"><b>HAWRE</b> AUTO</span>';
+const RIM='<svg class="logo-ic" viewBox="0 0 32 32" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="16" cy="16" r="13"/><circle cx="16" cy="16" r="4"/><path d="M16 12V3M12.5 14 4 11.3M19.5 14 28 11.3M13.8 19.6 8.5 26.5M18.2 19.6 23.5 26.5"/></svg>';
+const logoHtml=()=>(MEDIA.logo?`<img src="${esc(MEDIA.logo)}" alt="" class="logo-img" onerror="this.outerHTML=RIM">`:RIM)+'<span class="logo-txt ltr"><b>HAWRE</b> AUTO</span>';
 
 /* ---- دانانی میدیا ---- */
 $('site-logo').innerHTML=logoHtml();
@@ -612,13 +665,25 @@ function setLang(l){
   document.title=t('title');
   document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
   document.querySelectorAll('[data-ph]').forEach(e=>e.placeholder=t(e.dataset.ph));
-  document.querySelectorAll('#lang button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+  document.querySelectorAll('#lang-list button').forEach(b=>b.classList.toggle('on',b.dataset.l===l));
+  $('lang-cur').textContent={ckb:'کوردی',ar:'عربي',en:'EN'}[l]||'EN';
 }
 
 /* ---- کرداری دوگمەکان ---- */
-document.querySelectorAll('#lang button').forEach(b=>b.onclick=()=>setLang(b.dataset.l));
-$('burger').onclick=()=>{const o=$('menu').classList.toggle('open');document.body.style.overflow=o?'hidden':''};
-document.querySelectorAll('#menu a').forEach(a=>a.onclick=()=>{$('menu').classList.remove('open');document.body.style.overflow=''});
+const langBox=$('lang');
+$('lang-btn').onclick=e=>{e.stopPropagation();const o=langBox.classList.toggle('open');$('lang-btn').setAttribute('aria-expanded',o)};
+document.querySelectorAll('#lang-list button').forEach(b=>b.onclick=()=>{setLang(b.dataset.l);langBox.classList.remove('open');$('lang-btn').setAttribute('aria-expanded','false')});
+document.addEventListener('click',e=>{if(!langBox.contains(e.target)){langBox.classList.remove('open');$('lang-btn').setAttribute('aria-expanded','false')}});
+function menuState(o){$('menu').classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';$('burger').textContent=o?'\u2715':'\u2630';document.querySelector('header').classList.toggle('mo',o)}
+$('burger').onclick=()=>menuState(!$('menu').classList.contains('open'));
+document.querySelectorAll('#menu a').forEach(a=>a.onclick=()=>menuState(false));
+/* ---- هێڵی ژێر بەشی ئێستا لە مێنیوەکەدا ---- */
+(()=>{const ids=['countries','process','request','contact'];
+  const spy=()=>{let cur='';const y=innerHeight*.35;
+    ids.forEach(id=>{const e=$(id);if(e&&e.getBoundingClientRect().top<=y)cur=id});
+    if(scrollY+innerHeight>=document.documentElement.scrollHeight-4)cur='contact';
+    document.querySelectorAll('#menu a:not(.m-cta)').forEach(a=>a.classList.toggle('act',a.getAttribute('href')==='#'+cur))};
+  addEventListener('scroll',spy,{passive:true});spy()})();
 
 /* ---- سۆشیاڵ میدیا ---- */
 (()=>{const S=MEDIA.social||{};
