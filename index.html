@@ -444,6 +444,19 @@ header.sc::before,header.mo::before{opacity:0}
 @keyframes hz{from{transform:scale(1)}to{transform:scale(1.06)}}
 .hero .slot>img:not(.hbg){animation:hz 20s ease-in-out infinite alternate;will-change:transform}
 @media(prefers-reduced-motion:reduce){.hero .slot>img:not(.hbg){animation:none}}
+/* ---- header + logo ---- */
+.bar{height:52px}
+.logo{gap:10px;min-width:0}
+.logo-img{height:40px;width:auto;max-width:min(220px,52vw);object-fit:contain;padding:0;background:none;border-radius:0}
+.logo-img+.logo-txt{display:none}
+.logo-ic{width:32px;height:32px}
+.logo-txt{font-size:1rem;letter-spacing:.1em}
+html{scroll-padding-top:52px}
+@media(max-width:760px){.menu{top:52px}}
+@media(min-width:761px){.bar{height:64px}.logo-img{height:50px;width:auto;max-width:300px}.logo-ic{width:38px;height:38px}.logo-txt{font-size:1.2rem;letter-spacing:.14em}html{scroll-padding-top:64px}}
+/* ---- hero photo: soft fade into the page ---- */
+.hero .slot::after{content:'';position:absolute;inset:auto 0 0 0;height:40%;z-index:2;pointer-events:none;background:linear-gradient(180deg,transparent,rgba(42,8,19,.88))}
+@media(min-width:761px){.menu,.menu.open{background:none!important}}
 </style>
 </head>
 <body>
